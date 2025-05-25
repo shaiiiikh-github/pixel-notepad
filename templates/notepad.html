@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pixel Notepad</title>
+
+    <!-- Load styles using Flask static path -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="theme-color" content="#ffcc00">
+
+    <!-- (Optional) Manifest for PWA support -->
+    <!-- <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}"> -->
+</head>
+
+<body>
+    <div class="container">
+        <!-- Logout Button (top-right) -->
+        <div style="text-align: right;">
+            <a href="{{ url_for('logout') }}">
+                <button style="width: auto; padding: 6px 12px;">Logout</button>
+            </a>
+        </div>
+
+        <!-- Title -->
+        <h1>Pixel Notepad</h1>
+
+        <!-- Note Input -->
+        <textarea id="note-text" placeholder="Write your note..."></textarea>
+        <button onclick="addNote()">Add Note</button>
+
+        <!-- Notes Display -->
+        <div id="notes-container"></div>
+    </div>
+
+    <!-- Load JavaScript using Flask static path -->
+    <script src="{{ url_for('static', filename='notepad.js') }}"></script>
+</body>
+</html>
